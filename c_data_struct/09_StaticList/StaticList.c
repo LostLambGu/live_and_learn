@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <malloc.h>
 #include "StaticList.h"
@@ -6,7 +8,7 @@
 
 typedef struct _tag_StaticListNode
 {
-    unsigned int data;
+    unsigned long long data;
     int next;
 } TStaticListNode;
 
@@ -32,6 +34,7 @@ StaticList *StaticList_Create(int capacity) // O(n)
         ret->capacity = capacity;
         ret->header.data = 0;
         ret->header.next = 0;
+        ret->node[0] = ret->header;
 
         for (i = 1; i <= capacity; i++)
         {
@@ -71,7 +74,7 @@ int StaticList_Length(StaticList *list) // O(1)
 
     if (sList != NULL)
     {
-        ret = sList->header.data;
+        ret = (int)sList->header.data;
     }
 
     return ret;
@@ -112,7 +115,7 @@ int StaticList_Insert(StaticList *list, StaticListNode *node, int pos) // O(n)
             }
         }
 
-        sList->node[index].data = (unsigned int)node;
+        sList->node[index].data = (unsigned long long)node;
 
         sList->node[0] = sList->header;
 

@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "CircleList.h"
@@ -41,7 +43,7 @@ int main(int argc, char *argv[])
     CircleList_Insert(list, (CircleListNode *)&v5, 5);
     CircleList_Delete(list, 0);
 
-    for (i = 0; i < 2 * CircleList_Length(list); i++)
+    for (i = 0; i < CircleList_Length(list); i++)
     {
         struct Value *pv = (struct Value *)CircleList_Get(list, i);
 

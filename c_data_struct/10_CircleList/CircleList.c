@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <malloc.h>
 #include "CircleList.h"
@@ -15,9 +17,9 @@ CircleList *CircleList_Create() // O(1)
 
     if (ret != NULL)
     {
-        ret->length = 0;
         ret->header.next = NULL;
         ret->slider = NULL;
+        ret->length = 0;
     }
 
     return ret;
@@ -34,9 +36,9 @@ void CircleList_Clear(CircleList *list) // O(1)
 
     if (sList != NULL)
     {
-        sList->length = 0;
         sList->header.next = NULL;
         sList->slider = NULL;
+        sList->length = 0;
     }
 }
 
@@ -170,7 +172,7 @@ CircleListNode *CircleList_DeleteNode(CircleList *list, CircleListNode *node) //
 
         if (ret != NULL)
         {
-            CircleList_Delete(sList, i);
+            CircleList_Delete(list, i);
         }
     }
 
