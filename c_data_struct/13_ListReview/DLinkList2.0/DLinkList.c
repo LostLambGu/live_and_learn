@@ -17,10 +17,10 @@ DLinkList *DLinkList_Create() // O(1)
 
     if (ret != NULL)
     {
-        ret->length = 0;
         ret->header.next = NULL;
         ret->header.pre = NULL;
         ret->slider = NULL;
+        ret->length = 0;
     }
 
     return ret;
@@ -37,10 +37,10 @@ void DLinkList_Clear(DLinkList *list) // O(1)
 
     if (sList != NULL)
     {
-        sList->length = 0;
         sList->header.next = NULL;
         sList->header.pre = NULL;
         sList->slider = NULL;
+        sList->length = 0;
     }
 }
 

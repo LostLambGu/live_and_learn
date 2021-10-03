@@ -4,7 +4,9 @@
 #include <malloc.h>
 #include "SeqList.h"
 
-typedef unsigned int TSeqListNode;
+typedef unsigned long long system_pointer_t;
+
+typedef system_pointer_t TSeqListNode;
 
 typedef struct _tag_SeqList
 {

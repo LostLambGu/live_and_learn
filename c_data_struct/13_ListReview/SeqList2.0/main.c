@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
     SeqList_Delete(list, 5);
 
-    printf("%x\n", SeqList_Get(list, 5));
+    printf("%llx\n", (unsigned long long)SeqList_Get(list, 5));
 
     SeqList_Destroy(list);
 

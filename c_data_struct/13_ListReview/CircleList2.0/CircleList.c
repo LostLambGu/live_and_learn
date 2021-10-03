@@ -17,9 +17,9 @@ CircleList *CircleList_Create() // O(1)
 
     if (ret != NULL)
     {
-        ret->length = 0;
         ret->header.next = NULL;
         ret->slider = NULL;
+        ret->length = 0;
     }
 
     return ret;
@@ -36,9 +36,9 @@ void CircleList_Clear(CircleList *list) // O(1)
 
     if (sList != NULL)
     {
-        sList->length = 0;
         sList->header.next = NULL;
         sList->slider = NULL;
+        sList->length = 0;
     }
 }
 

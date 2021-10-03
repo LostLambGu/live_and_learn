@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 
     //DLinkList_Pre(list);
 
-    printf("%x\n", DLinkList_Current(list));
+    printf("%llx\n", (unsigned long long)DLinkList_Current(list));
 
     DLinkList_Destroy(list);
 
