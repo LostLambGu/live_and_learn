@@ -61,24 +61,24 @@ void transform(const char *exp)
         }
         else if (isOperator(exp[i]))
         {
-            while (priority(exp[i]) <= priority((char)(int)LinkStack_Top(stack)))
+            while (priority(exp[i]) <= priority((char)(unsigned long long)LinkStack_Top(stack)))
             {
-                output((char)(int)LinkStack_Pop(stack));
+                output((char)(unsigned long long)LinkStack_Pop(stack));
             }
 
-            LinkStack_Push(stack, (void *)(int)exp[i]);
+            LinkStack_Push(stack, (void *)(unsigned long long)exp[i]);
         }
         else if (isLeft(exp[i]))
         {
-            LinkStack_Push(stack, (void *)(int)exp[i]);
+            LinkStack_Push(stack, (void *)(unsigned long long)exp[i]);
         }
         else if (isRight(exp[i]))
         {
             char c = '\0';
 
-            while (!isLeft((char)(int)LinkStack_Top(stack)))
+            while (!isLeft((char)(unsigned long long)LinkStack_Top(stack)))
             {
-                output((char)(int)LinkStack_Pop(stack));
+                output((char)(unsigned long long)LinkStack_Pop(stack));
             }
 
             LinkStack_Pop(stack);
@@ -94,13 +94,13 @@ void transform(const char *exp)
 
     while ((LinkStack_Size(stack) > 0) && (exp[i] == '\0'))
     {
-        output((char)(int)LinkStack_Pop(stack));
+        output((char)(unsigned long long)LinkStack_Pop(stack));
     }
 
     LinkStack_Destroy(stack);
 }
 
-int main()
+int main(int argc, char *argv[])
 {
     transform("9+(3-1)*5+8/2");
 

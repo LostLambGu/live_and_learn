@@ -13,14 +13,14 @@ int isOperator(char c)
     return (c == '+') || (c == '-') || (c == '*') || (c == '/');
 }
 
-int value(char c)
+unsigned long long value(char c)
 {
     return (c - '0');
 }
 
-int express(int left, int right, char op)
+unsigned long long express(unsigned long long left, unsigned long long right, char op)
 {
-    int ret = 0;
+    unsigned long long ret = 0;
 
     switch (op)
     {
@@ -43,10 +43,10 @@ int express(int left, int right, char op)
     return ret;
 }
 
-int compute(const char *exp)
+unsigned long long compute(const char *exp)
 {
     LinkStack *stack = LinkStack_Create();
-    int ret = 0;
+    unsigned long long ret = 0;
     int i = 0;
 
     while (exp[i] != '\0')
@@ -57,9 +57,9 @@ int compute(const char *exp)
         }
         else if (isOperator(exp[i]))
         {
-            int right = (int)LinkStack_Pop(stack);
-            int left = (int)LinkStack_Pop(stack);
-            int result = express(left, right, exp[i]);
+            unsigned long long right = (unsigned long long)LinkStack_Pop(stack);
+            unsigned long long left = (unsigned long long)LinkStack_Pop(stack);
+            unsigned long long result = express(left, right, exp[i]);
 
             LinkStack_Push(stack, (void *)result);
         }
@@ -74,7 +74,7 @@ int compute(const char *exp)
 
     if ((LinkStack_Size(stack) == 1) && (exp[i] == '\0'))
     {
-        ret = (int)LinkStack_Pop(stack);
+        ret = (unsigned long long)LinkStack_Pop(stack);
     }
     else
     {
@@ -88,7 +88,7 @@ int compute(const char *exp)
 
 int main()
 {
-    printf("9 + (3 - 1) * 5 + 8 / 2 = %d\n", compute("931-5*+82/+"));
+    printf("9 + (3 - 1) * 5 + 8 / 2 = %lld\n", compute("931-5*+82/+"));
 
     return 0;
 }
